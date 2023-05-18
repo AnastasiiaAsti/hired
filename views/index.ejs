@@ -1,7 +1,18 @@
 <%- include('./partials/header') %>
   <div class="container">
-    <p>Welcome to <%= title %>
-    </p>
-    <img src="/images/login.png" alt="">
+
+    <% if (!user) { %>
+      <h2>Welcome to <%= title %>
+      </h2>
+      <br>
+      <p>In today's fast-paced and dynamic work environments, staying organized and on top of your tasks is crucial.
+      </p>
+      <br>
+      <p>Hired is the ultimate job tracking application designed to help you efficiently manage your job hunting
+        experience</p>
+      <% } else { %>
+        <h3>Hi <%= user.name %>, welcome to Hired. </h3>
+        <% } %>
+          <img class="main-img" src="/images/login.png" alt="">
   </div>
   <%- include('./partials/footer') %>
