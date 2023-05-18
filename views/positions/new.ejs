@@ -1,0 +1,52 @@
+<%- include('../partials/header.ejs') %>
+
+    <div class="container-new">
+        <h1>Tell me about this position</h1>
+        <div>
+            <a href="/positions/">Go back</a>
+        </div>
+    </div>
+    <div class="container-form">
+        <form id="create-form" action="/positions" method="POST">
+            <label>Position</label>
+            <input type="string" name="position" placeholder="required..." /> <br />
+            <label>Company</label>
+            <input type="string" name="companyName" placeholder="required..." /><br />
+            <label>Position Link</label>
+            <input type="string" name="positionUrl" placeholder="optional..." /> <br />
+            <label>Position details</label>
+            <textarea rows="10" cols="70" type="string" name="jobDetails" placeholder="optional..."></textarea><br />
+            <label>Required skills</label>
+            <input type="string" name="skillsRequired" placeholder="optional..." /><br />
+            <label>Optional skills</label>
+            <input type="string" name="skillsOptional" placeholder="optional..." />
+            <br />
+            <label>Company Link</label>
+            <input type="string" name="companyUrl" placeholder="optional..." />
+            <br />
+            <label>Industry</label>
+            <input type="string" name="industry" placeholder="optional..." />
+            <br />
+            <label>Company details</label>
+            <textarea rows="10" cols="70" type="string" name="companyDetails"
+                placeholder="optional..."></textarea><br />
+            <label>Location</label>
+            <select name="location">
+                <option disabled selected value>-- select one --</option>
+                <option value="Remote">Remote</option>
+                <option value="In-Person">In-Person</option>
+                <option value="Hybrid">Hybrid</option>
+            </select><br />
+            <label>Where did you find it?</label>
+            <select name="website">
+                <option disabled selected value>-- select one --</option>
+                <option value="linkedIn">linkedIn</option>
+                <option value="Indeed">Indeed</option>
+                <option value="ZipRecruiter">ZipRecruiter</option>
+                <option value="Company website">Company website</option>
+            </select><br />
+            <input type="submit" value="Submit" id="large-btn" />
+        </form>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>

@@ -11,7 +11,10 @@ const positionSchema = new Schema(
         jobDetails: String,
         skillsRequired: String,
         skillsOptional: String,
-        location: String,
+        location: {
+            type: String,
+            enum: ['Remote', 'In-Person', 'Hybrid']
+        },
         companyName: {
             type: String,
             required: true,

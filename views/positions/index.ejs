@@ -1,0 +1,44 @@
+<%- include('../partials/header.ejs') %>
+
+    <div class="container-positions">
+        <% if (list.length> 0) { %>
+            <h2>You are watching <%= list.length %> jobs!</h2>
+            <div class="other-links">
+                <a href="/positions/new">Create new job</a>
+            </div>
+    </div>
+    <div class="">
+        <% } %>
+            <% if(list.length> 0) {%>
+                <table>
+                    <tr>
+                        <th>Title</th>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Link</th>
+                    </tr>
+                    <% list.forEach(function(p) { %>
+                        <tr>
+                            <td>
+                                <%= p.position %>
+                            </td>
+                            <td>
+                                <%=p.companyName %>
+                            </td>
+                            <td>
+                                <%= p.location %>
+                            </td>
+                            <td>
+                                <%= p.positionUrl %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </table>
+                <% } else { %>
+
+                    <h2>Start adding positions <span><a href="/positions/new">HERE</a></span></h2>
+                    <img class="main-img" src="/images/login.png" alt="">
+                    <% } %>
+    </div>
+
+    <%- include('../partials/footer.ejs') %>
