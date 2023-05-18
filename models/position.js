@@ -7,6 +7,9 @@ const positionSchema = new Schema(
             type: String,
             required: true,
         },
+        whenApplied: {
+            type: Date,
+        },
         positionUrl: String,
         jobDetails: String,
         skillsRequired: String,
