@@ -64,11 +64,19 @@ nav {
   background-color: #95A5A6;
   font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
 }
 
 .table-row {
   background-color: #586262;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.table-row:hover {
+  transform: scale(1.05);
+  background-color: #4a5353;
+  transition: .2s ease-in-out 0s;
+
 }
 
 .col-1 {

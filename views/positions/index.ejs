@@ -17,7 +17,7 @@
                         <div class="col col-4">Date</div>
                     </li>
                     <% list.forEach(function(p) { %>
-                        <li class="table-row">
+                        <li class="table-row" onclick="window.location='/positions/<%= p._id %>'">
                             <div class="col col-1" data-label="Title">
                                 <%= p.position %>
                             </div>
