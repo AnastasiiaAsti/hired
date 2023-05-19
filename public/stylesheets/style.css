@@ -40,6 +40,136 @@ nav {
   border-bottom: 2px solid #ffffff;
 }
 
+/*  table with positions */
+
+
+.container-positions-2 {
+  margin-top: 5%;
+  max-width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.table li {
+  border-radius: 3px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.table-header {
+  background-color: #95A5A6;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.table-row {
+  background-color: #586262;
+}
+
+.col-1 {
+  flex-basis: 10%;
+}
+
+.col-2 {
+  flex-basis: 40%;
+}
+
+.col-3 {
+  flex-basis: 25%;
+}
+
+.col-4 {
+  flex-basis: 25%;
+}
+
+
+/* position form */
+
+.container-new {
+  margin: 40px;
+}
+
+.back-link {
+  margin-top: 20px;
+}
+
+.container-form {
+  max-width: 100vw;
+}
+
+.container-form textarea {
+  width: 100%;
+  background-color: #95A5A6;
+  padding: 10px;
+  border-radius: 5px;
+
+}
+
+.container-form #large-btn {
+  background-color: #586262;
+  color: #ffffff;
+}
+
+.form-item {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+}
+
+.form-item label {
+  position: absolute;
+  top: 0;
+}
+
+.form-item input,
+.form-item select {
+  background-color: #95A5A6;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #000000;
+}
+
+@media only screen and (max-width: 767px) {
+  .table .table-header {
+    display: none;
+  }
+
+  .table-row {
+    width: 100%;
+  }
+
+  .table li {
+    display: inline-block;
+  }
+
+  .table .col {
+    flex-basis: 100%;
+
+  }
+
+  .col {
+    display: flex;
+    padding: 10px 0;
+
+    &:before {
+      color: #363d45;
+      padding-right: 10px;
+      content: attr(data-label);
+      flex-basis: 50%;
+      text-align: right;
+    }
+  }
+}
+
+
+
 @media only screen and (max-width: 800px) {
   .main-img {
     width: 300px;

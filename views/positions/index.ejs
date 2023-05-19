@@ -1,39 +1,38 @@
 <%- include('../partials/header.ejs') %>
 
-    <div class="container-positions">
+    <div class="container-positions-1">
         <% if (list.length> 0) { %>
-            <h2>You are watching <%= list.length %> jobs!</h2>
-            <div class="other-links">
-                <a href="/positions/new">Create new job</a>
+            <div class="links">
+                <a href="/positions/new">Create new position</a>
             </div>
     </div>
-    <div class="">
+    <div class="container-positions-2">
         <% } %>
             <% if(list.length> 0) {%>
-                <table>
-                    <tr>
-                        <th>Title</th>
-                        <th>Company</th>
-                        <th>Location</th>
-                        <th>Date</th>
-                    </tr>
+                <ul class="table">
+                    <li class="table-header">
+                        <div class="col col-1">Title</div>
+                        <div class="col col-2">Company</div>
+                        <div class="col col-3">Location</div>
+                        <div class="col col-4">Date</div>
+                    </li>
                     <% list.forEach(function(p) { %>
-                        <tr>
-                            <td>
+                        <li class="table-row">
+                            <div class="col col-1" data-label="Title">
                                 <%= p.position %>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col col-2" data-label="Company">
                                 <%=p.companyName %>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col col-3" data-label="Location">
                                 <%= p.location %>
-                            </td>
-                            <td>
+                            </div>
+                            <div class="col col-4" data-label="Date">
                                 <%= p.whenApplied %>
-                            </td>
-                        </tr>
+                            </div>
+                        </li>
                         <% }) %>
-                </table>
+                </ul>
                 <% } else { %>
 
                     <h2>Start adding positions <span><a href="/positions/new">HERE</a></span></h2>
