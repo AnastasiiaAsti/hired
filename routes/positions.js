@@ -9,5 +9,7 @@ router.get("/", isLoggedIn, positionsCtrl.index);
 router.get("/new", isLoggedIn, positionsCtrl.new);
 //POST /jobs
 router.post("/", isLoggedIn, positionsCtrl.create);
+//GET /jobs/:id
+router.get("/:id", isLoggedIn, positionsCtrl.show);
 
 module.exports = router;

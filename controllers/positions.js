@@ -4,6 +4,7 @@ module.exports = {
     index,
     new: newPosition,
     create,
+    show
 };
 
 async function index(req, res) {
@@ -29,6 +30,20 @@ async function create(req, res) {
         req.body.user = req.user.id;
         await Position.create(req.body);
         res.redirect("/positions");
+    } catch (err) {
+        console.error("Error : " + err);
+        res.render("error");
+    }
+}
+
+async function show(req, res) {
+    try {
+        const position = await Position.findById(req.params.id);
+        if (position.user.equals(req.user._id)) {
+            res.render("positions/show", { position, title: "Hired" });
+        } else {
+            res.redirect("/positions");
+        }
     } catch (err) {
         console.error("Error : " + err);
         res.render("error");

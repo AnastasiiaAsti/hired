@@ -1,0 +1,73 @@
+<%- include('../partials/header') %>
+
+    <div class="show-position-header">
+        <h1>
+            <span class="position">
+                <%= position.position %>
+            </span> at <%= position.companyName %>
+        </h1>
+        <div class="link">
+            <a href="/positions/">Go back to your list</a>
+        </div>
+    </div>
+    <div class="position-container">
+        <ul id="table-position-show">
+            <li class="position-table-header">
+                <div class="row">Date</div>
+                <div class="row">Position</div>
+                <div class="row">Position Detail</div>
+                <div class="row">Location</div>
+                <div class="row">Job Listing</div>
+                <div class="row">Required skills</div>
+                <div class="row">Optional Skills</div>
+                <div class="row">Industry</div>
+                <div class="row">Company Description</div>
+                <div class="row">Where did you find it?</div>
+            </li>
+            <li class="position-table-row">
+
+                <div class="row">
+                    <%= position.whenApplied ? position.whenApplied.toDateString() : 'n/a' %>
+                </div>
+
+                <div class="row">
+                    <% if (position.positionUrl ) { %>
+                        <a href="<%= position.positionUrl %>">HERE</a>
+                        <% } else { %>
+                            <p>no link</p>
+                            <% } %>
+                </div>
+                <div class="row">
+                    <%= position.jobDetails ? position.jobDetails : 'n/a' %>
+                </div>
+                <div class="row">
+                    <%= position.location ? position.location : 'n/a' %>
+                </div>
+                <div class="row">
+                    <% if (position.positionUrl ) { %>
+                        <a href="<%= position.positionUrl %>">HERE</a>
+                        <% } else { %>
+                            <p>no link</p>
+                            <% } %>
+                </div>
+                <div class="row">
+                    <%=position.skillsRequired ? position.skillsRequired : 'n/a' %>
+                </div>
+                <div class="row">
+                    <%= position.skillsOptional ? position.skillsOptional : 'n/a' %>
+                </div>
+                <div class="row">
+                    <%= position.industry ? position.industry : 'n/a' %>
+                </div>
+                <div class="row">
+                    <%= position.companyDetails ? position.companyDetails : 'n/a' %>
+                </div>
+                <div class="row">
+                    <%= position.website ? position.website : 'n/a' %>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <%- include('../partials/footer') %>
