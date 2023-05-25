@@ -12,6 +12,57 @@
         </div>
     </div>
     <div class="show-page">
+        <div class="edit-container" id="edit-container">
+            <button id="toggle-edit" onclick="dropDown()">update this position</button>
+            <div class="hidden-edit" id="hidden-edit">
+                <form action="/positions/<%= position.id %>?_method=PUT" method="POST">
+                    <div class="row">
+                        <label class="row">Date</label>
+                        <input class='edit-input' type='date' name='whenApplied' value='<%= position.whenApplied %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Position</label>
+                        <input class='edit-input' type='text' name='positionUrl' value='<%= position.positionUrl %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Position Detail</label>
+                        <input class='edit-input' type='text' name='jobDetails' value='<%= position.jobDetails %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Location</label>
+                        <input class='edit-input' type='text' name='location' value='<%= position.location %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Job Listing</label>
+                        <input class='edit-input' type='text' name='companyUrl' value='<%= position.companyUrl %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Required skills</label>
+                        <input class='edit-input' type='text' name='skillsRequired'
+                            value='<%= position.skillsRequired %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Optional Skills</label>
+                        <input class='edit-input' type='text' name='skillsOptional'
+                            value='<%= position.skillsOptional %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Industry</label>
+                        <input class='edit-input' type='text' name='industry' value='<%= position.industry %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Company Description</label>
+                        <input class='edit-input' type='text' name='companyDetails'
+                            value='<%= position.companyDetails %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Where did you find it?</label>
+                        <input class='edit-input' type='text' name='website' value='<%= position.website %>'>
+                    </div>
+                    <button class="btn" type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
         <div class="position-container">
             <ul id="table-position-show">
                 <li class="position-table-header">
@@ -71,57 +122,7 @@
                 <button class="btn" type="submit">Delete this one</button>
             </form>
         </div>
-        <div class="edit-container" id="edit-container">
-            <button id="toggle-edit" onclick="dropDown()">update this position</button>
-            <div class="hidden-edit" id="hidden-edit">
-                <form action="/positions/<%= position.id %>?_method=PUT" method="POST">
-                    <div class="row">
-                        <label class="row">Date</label>
-                        <input class='edit-input' type='date' name='whenApplied' value='<%= position.whenApplied %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Position</label>
-                        <input class='edit-input' type='text' name='positionUrl' value='<%= position.positionUrl %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Position Detail</label>
-                        <input class='edit-input' type='text' name='jobDetails' value='<%= position.jobDetails %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Location</label>
-                        <input class='edit-input' type='text' name='location' value='<%= position.location %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Job Listing</label>
-                        <input class='edit-input' type='text' name='companyUrl' value='<%= position.companyUrl %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Required skills</label>
-                        <input class='edit-input' type='text' name='skillsRequired'
-                            value='<%= position.skillsRequired %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Optional Skills</label>
-                        <input class='edit-input' type='text' name='skillsOptional'
-                            value='<%= position.skillsOptional %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Industry</label>
-                        <input class='edit-input' type='text' name='industry' value='<%= position.industry %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Company Description</label>
-                        <input class='edit-input' type='text' name='companyDetails'
-                            value='<%= position.companyDetails %>'>
-                    </div>
-                    <div class="row">
-                        <label class="row">Where did you find it?</label>
-                        <input class='edit-input' type='text' name='website' value='<%= position.website %>'>
-                    </div>
-                    <button class="btn" type="submit">Edit</button>
-                </form>
-            </div>
-        </div>
+
     </div>
     <script>
         const containerEl = document.getElementById('edit-container')
@@ -131,6 +132,13 @@
             dropdown.classList.toggle('show')
             btn.classList.toggle('hide')
         }
+        // window.onclick = function (e) {
+        //     if (e.target === '#hide-edit' &&
+        //         btn.classList.contains('show')) {
+        //         console.log('hit it')
+        //         dropdown.classList.add('show')
+        //     }
+        // }
 
     </script>
 
