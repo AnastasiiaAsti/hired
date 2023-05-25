@@ -190,6 +190,15 @@ nav {
   height: 50px;
 }
 
+.btn {
+  padding: 10px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10px;
+  background-color: #434a4a;
+  color: #aaaaaa;
+}
+
 
 
 

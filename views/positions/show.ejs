@@ -68,10 +68,11 @@
                 </div>
             </li>
         </ul>
+        <form action="/positions/<%= position.id %>?_method=DELETE" method="POST">
+            <button class="btn" type="submit">Delete this one</button>
+        </form>
     </div>
-    <form action="/positions/<%= position.id %>?_method=DELETE" method="POST">
-        <button type="submit">Delete this one</button>
-    </form>
+
 
 
     <%- include('../partials/footer') %>
