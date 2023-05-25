@@ -11,5 +11,7 @@ router.get("/new", isLoggedIn, positionsCtrl.new);
 router.post("/", isLoggedIn, positionsCtrl.create);
 //GET /jobs/:id
 router.get("/:id", isLoggedIn, positionsCtrl.show);
+//DELETE /jobs/:id
+router.delete("/:id", isLoggedIn, positionsCtrl.delete);
 
 module.exports = router;

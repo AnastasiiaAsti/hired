@@ -8,6 +8,7 @@
         </h1>
         <div class="link">
             <a href="/positions/">Go back to your list</a>
+
         </div>
     </div>
     <div class="position-container">
@@ -68,6 +69,9 @@
             </li>
         </ul>
     </div>
+    <form action="/positions/<%= position.id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete this one</button>
+    </form>
 
 
     <%- include('../partials/footer') %>

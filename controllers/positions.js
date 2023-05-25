@@ -4,7 +4,8 @@ module.exports = {
     index,
     new: newPosition,
     create,
-    show
+    show,
+    delete: deletePosition
 };
 
 async function index(req, res) {
@@ -48,4 +49,19 @@ async function show(req, res) {
         console.error("Error : " + err);
         res.render("error");
     }
+}
+
+async function deletePosition(req, res) {
+    try {
+        const position = await Position.findOneAndDelete({
+            '_id': req.params.id,
+            'user': req.user.id
+        });
+        
+        if (!position) return res.redirect('/positions');
+    } catch (err) {
+        console.log(err);
+    }
+
+    res.redirect('/positions');
 }
