@@ -124,12 +124,14 @@
         </div>
     </div>
     <script>
+        const containerEl = document.getElementById('edit-container')
+        const btn = document.getElementById('toggle-edit')
+        const dropdown = document.getElementById('hidden-edit')
         function dropDown() {
-            const containerEl = document.getElementById('edit-container')
-            const btn = document.getElementById('toggle-edit')
-            const dropdown = document.getElementById('hidden-edit')
             dropdown.classList.toggle('show')
+            btn.classList.toggle('hide')
         }
+
     </script>
 
 
