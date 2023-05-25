@@ -11,68 +11,126 @@
 
         </div>
     </div>
-    <div class="position-container">
-        <ul id="table-position-show">
-            <li class="position-table-header">
-                <div class="row">Date</div>
-                <div class="row">Position</div>
-                <div class="row">Position Detail</div>
-                <div class="row">Location</div>
-                <div class="row">Job Listing</div>
-                <div class="row">Required skills</div>
-                <div class="row">Optional Skills</div>
-                <div class="row">Industry</div>
-                <div class="row">Company Description</div>
-                <div class="row">Where did you find it?</div>
-            </li>
-            <li class="position-table-row">
-
-                <div class="row">
-                    <%= position.whenApplied ? position.whenApplied.toDateString() : 'n/a' %>
-                </div>
-
-                <div class="row">
-                    <% if (position.positionUrl ) { %>
-                        <a href="<%= position.positionUrl %>">HERE</a>
-                        <% } else { %>
-                            <p>no link</p>
-                            <% } %>
-                </div>
-                <div class="row">
-                    <%= position.jobDetails ? position.jobDetails : 'n/a' %>
-                </div>
-                <div class="row">
-                    <%= position.location ? position.location : 'n/a' %>
-                </div>
-                <div class="row">
-                    <% if (position.positionUrl ) { %>
-                        <a href="<%= position.positionUrl %>">HERE</a>
-                        <% } else { %>
-                            <p>no link</p>
-                            <% } %>
-                </div>
-                <div class="row">
-                    <%=position.skillsRequired ? position.skillsRequired : 'n/a' %>
-                </div>
-                <div class="row">
-                    <%= position.skillsOptional ? position.skillsOptional : 'n/a' %>
-                </div>
-                <div class="row">
-                    <%= position.industry ? position.industry : 'n/a' %>
-                </div>
-                <div class="row">
-                    <%= position.companyDetails ? position.companyDetails : 'n/a' %>
-                </div>
-                <div class="row">
-                    <%= position.website ? position.website : 'n/a' %>
-                </div>
-            </li>
-        </ul>
-        <form action="/positions/<%= position.id %>?_method=DELETE" method="POST">
-            <button class="btn" type="submit">Delete this one</button>
-        </form>
+    <div class="show-page">
+        <div class="position-container">
+            <ul id="table-position-show">
+                <li class="position-table-header">
+                    <div class="row">Date</div>
+                    <div class="row">Position</div>
+                    <div class="row">Position Detail</div>
+                    <div class="row">Location</div>
+                    <div class="row">Job Listing</div>
+                    <div class="row">Required skills</div>
+                    <div class="row">Optional Skills</div>
+                    <div class="row">Industry</div>
+                    <div class="row">Company Description</div>
+                    <div class="row">Where did you find it?</div>
+                </li>
+                <li class="position-table-row">
+                    <div class="row">
+                        <%= position.whenApplied ? position.whenApplied.toDateString() : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <% if (position.positionUrl ) { %>
+                            <a href="<%= position.positionUrl %>">HERE</a>
+                            <% } else { %>
+                                <p>no link</p>
+                                <% } %>
+                    </div>
+                    <div class="row">
+                        <%= position.jobDetails ? position.jobDetails : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <%= position.location ? position.location : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <% if (position.companyUrl ) { %>
+                            <a href="<%= position.companyUrl %>">HERE</a>
+                            <% } else { %>
+                                <p>no link</p>
+                                <% } %>
+                    </div>
+                    <div class="row">
+                        <%=position.skillsRequired ? position.skillsRequired : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <%= position.skillsOptional ? position.skillsOptional : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <%= position.industry ? position.industry : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <%= position.companyDetails ? position.companyDetails : 'n/a' %>
+                    </div>
+                    <div class="row">
+                        <%= position.website ? position.website : 'n/a' %>
+                    </div>
+                </li>
+            </ul>
+            <form action="/positions/<%= position.id %>?_method=DELETE" method="POST">
+                <button class="btn" type="submit">Delete this one</button>
+            </form>
+        </div>
+        <div class="edit-container" id="edit-container">
+            <button id="toggle-edit" onclick="dropDown()">update this position</button>
+            <div class="hidden-edit" id="hidden-edit">
+                <form action="/positions/<%= position.id %>?_method=PUT" method="POST">
+                    <div class="row">
+                        <label class="row">Date</label>
+                        <input class='edit-input' type='date' name='whenApplied' value='<%= position.whenApplied %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Position</label>
+                        <input class='edit-input' type='text' name='positionUrl' value='<%= position.positionUrl %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Position Detail</label>
+                        <input class='edit-input' type='text' name='jobDetails' value='<%= position.jobDetails %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Location</label>
+                        <input class='edit-input' type='text' name='location' value='<%= position.location %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Job Listing</label>
+                        <input class='edit-input' type='text' name='companyUrl' value='<%= position.companyUrl %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Required skills</label>
+                        <input class='edit-input' type='text' name='skillsRequired'
+                            value='<%= position.skillsRequired %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Optional Skills</label>
+                        <input class='edit-input' type='text' name='skillsOptional'
+                            value='<%= position.skillsOptional %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Industry</label>
+                        <input class='edit-input' type='text' name='industry' value='<%= position.industry %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Company Description</label>
+                        <input class='edit-input' type='text' name='companyDetails'
+                            value='<%= position.companyDetails %>'>
+                    </div>
+                    <div class="row">
+                        <label class="row">Where did you find it?</label>
+                        <input class='edit-input' type='text' name='website' value='<%= position.website %>'>
+                    </div>
+                    <button class="btn" type="submit">Edit</button>
+                </form>
+            </div>
+        </div>
     </div>
-
+    <script>
+        function dropDown() {
+            const containerEl = document.getElementById('edit-container')
+            const btn = document.getElementById('toggle-edit')
+            const dropdown = document.getElementById('hidden-edit')
+            dropdown.classList.toggle('show')
+        }
+    </script>
 
 
     <%- include('../partials/footer') %>

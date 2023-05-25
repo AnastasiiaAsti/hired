@@ -5,13 +5,16 @@ const isLoggedIn = require('../config/auth');
 
 //GET all /positions
 router.get("/", isLoggedIn, positionsCtrl.index);
-//GET /jobs/new
+//GET /positions/new
 router.get("/new", isLoggedIn, positionsCtrl.new);
-//POST /jobs
+//POST /positions
 router.post("/", isLoggedIn, positionsCtrl.create);
-//GET /jobs/:id
+//GET /positions/:id
 router.get("/:id", isLoggedIn, positionsCtrl.show);
-//DELETE /jobs/:id
+//DELETE /positions/:id
 router.delete("/:id", isLoggedIn, positionsCtrl.delete);
+//PUT /positions/:id
+router.put("/:id", isLoggedIn, positionsCtrl.update);
+
 
 module.exports = router;

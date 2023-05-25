@@ -161,7 +161,6 @@ nav {
 
 .position-container {
   background-color: #586262;
-  margin: 30px 0 0 0;
   border-radius: 10px;
   padding: 30px;
 }
@@ -197,8 +196,57 @@ nav {
   border-radius: 10px;
   background-color: #434a4a;
   color: #aaaaaa;
+  margin: 10px;
 }
 
+
+/* edit */
+
+
+.edit-container {
+  background-color: #586262;
+  border-radius: 10px;
+  color: #181c1c;
+  padding: 30px;
+  position: relative;
+  height: fit-content;
+}
+
+.hidden-edit {
+  display: none;
+}
+
+
+.hidden-edit .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.row input {
+  background-color: #95A5A6;
+  border: none;
+  padding: 5px;
+  width: 50%;
+  height: 30px;
+  border-radius: 10px;
+
+}
+
+.show {
+  display: block;
+}
+
+.height {
+  height: 20px;
+}
+
+#toggle-edit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-transform: uppercase;
+}
 
 
 
@@ -244,5 +292,22 @@ nav {
 @media only screen and (max-width: 800px) {
   .main-img {
     width: 300px;
+  }
+}
+
+@media only screen and (min-width: 801px) {
+  .show-page {
+    display: flex;
+  }
+
+  .position-container {
+    width: 60%;
+    margin: 30px;
+
+  }
+
+  .edit-container {
+    width: 40%;
+    margin: 30px;
   }
 }

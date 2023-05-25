@@ -5,7 +5,8 @@ module.exports = {
     new: newPosition,
     create,
     show,
-    delete: deletePosition
+    delete: deletePosition,
+    update
 };
 
 async function index(req, res) {
@@ -50,6 +51,21 @@ async function show(req, res) {
         res.render("error");
     }
 }
+
+async function update(req, res) {
+    try {
+        await Position.findOneAndUpdate(
+            { _id: req.params.id },
+            req.body,
+            { new: true },);
+            const dropdown = document.getElementById('hidden-edit')
+            dropdown.classList.toggle('show')
+    } catch {
+        res.render("error");
+    }
+    res.redirect(`/positions/${req.params.id}`);
+}
+
 
 async function deletePosition(req, res) {
     try {
