@@ -38,7 +38,19 @@ const positionSchema = new Schema(
             type: Date,
         },
         status: [statusSchema],
-        positionUrl: String,
+        positionUrl: [
+          {
+              type: String,
+              validate: {
+                  validator: function (value) {
+                      const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+                      const urlRegExp = new RegExp(urlPattern);
+                      return value.match(urlRegExp);
+              },
+                  message: props => `${props.value} is not a valid URL`
+              }
+          }
+      ],
         jobDetails: String,
         skillsRequired: String,
         skillsOptional: String,
@@ -50,7 +62,19 @@ const positionSchema = new Schema(
             type: String,
             required: true,
         },
-        companyUrl: String,
+        companyUrl: [
+          {
+              type: String,
+              validate: {
+                  validator: function (value) {
+                      const urlPattern = /(http|https):\/\/(\w+:{0,1}\w*#)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%#!\-/]))?/;
+                      const urlRegExp = new RegExp(urlPattern);
+                      return value.match(urlRegExp);
+              },
+                  message: props => `${props.value} is not a valid URL`
+              }
+          }
+      ],
         industry: String,
         companyDetails: String,
         website: {
